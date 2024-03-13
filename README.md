@@ -1,1 +1,1 @@
-A sample spp in React Native around Movies.
+A sample app in React Native around Movies.
