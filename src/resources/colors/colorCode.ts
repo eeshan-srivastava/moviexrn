@@ -54,4 +54,6 @@ export default {
     accent: '#3762F9',
     actionTint: '#E6B31E',
     arsenic: '#353638',
+    black2: '#1c1c27',
+    black3: '#454A57'
 };

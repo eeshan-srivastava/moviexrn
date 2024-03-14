@@ -1,5 +1,5 @@
-const API_KEY = '';
+const AUTH_TOKEN = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwZDNjZTVjNjE3NDkwYzFlMDdmODg4NWJiYzkwMjQyOSIsInN1YiI6IjY1ZjFiY2IwNDcwZWFkMDE2MjljNjQ0MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.BcxZlIZ9mFSaxBx2T21hqENbNFnmRGh7gEm-7QEAWjg';
 
 export default {
-    API_KEY,
+    AUTH_TOKEN,
 };

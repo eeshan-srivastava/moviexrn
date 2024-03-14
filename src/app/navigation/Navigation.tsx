@@ -19,10 +19,10 @@ const Navigation = () => {
                     contentStyle: styles.container1,
                     animation: 'slide_from_right',
                     statusBarColor: ColorUtils.getAlphaColor({
-                        colorCode: colorCode.white_F5F5F5,
+                        colorCode: colorCode.black,
                         opacityPercent: 100,
                     }),
-                    statusBarStyle: 'dark',
+                    statusBarStyle: 'light',
                     statusBarAnimation: 'fade',
                 }}>
                 <ReactNavStack.Screen name={NavigationRoutes.main} component={Main} />
