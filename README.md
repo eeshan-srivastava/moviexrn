@@ -1,5 +1,7 @@
 A sample app in React Native around Movies.
 
+Note : I have treated the four categories of movies as four different features for this project.
+
 To Run the app:
 
 Android: 
