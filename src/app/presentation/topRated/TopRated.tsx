@@ -17,6 +17,7 @@ import { getApiErrorMessageFromError } from '../../../utils/AppUtils';
 import DefaultLoadingView from '../widgets/view/DefaultLoadingView';
 import { MovieTopRatedRC } from '../../../domain/model/movie/MovieTopRatedRC';
 import { MovieTopRatedItemContent } from '../../../domain/model/movie/MovieTopRatedContent';
+import NavigationRoutes from '../../navigation/NavigationRoutes';
 
 interface Props {}
 
@@ -83,7 +84,9 @@ const TopRated = (props: Props) => {
     }, []);
 
     const onClickItem = (item: MovieItemBean) => {
-        
+        navigation.navigate(NavigationRoutes.movie_details, {
+            movie: item
+        });
     };
 
     const renderItem = ({ item, index }: { item: MovieItemBean; index: number }) => {

@@ -42,6 +42,9 @@ const Main = (props: Props) => {
     useEffect(() => {}, []);
 
     const onBackPress = () =>{
+        if (navigation.canGoBack()) {
+            navigation.goBack();
+        }
         return true;
     }
 

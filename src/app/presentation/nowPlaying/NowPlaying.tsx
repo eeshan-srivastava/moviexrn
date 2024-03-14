@@ -17,6 +17,7 @@ import { movieUseCase } from '../../../domain/usecase';
 import { MovieNowPlayingItemContent } from '../../../domain/model/movie/MovieNowPlayingContent';
 import { getApiErrorMessageFromError, isStandardError } from '../../../utils/AppUtils';
 import DefaultLoadingView from '../widgets/view/DefaultLoadingView';
+import NavigationRoutes from '../../navigation/NavigationRoutes';
 
 interface Props {}
 
@@ -83,7 +84,9 @@ const NowPlaying = (props: Props) => {
     }, []);
 
     const onClickItem = (item: MovieItemBean) => {
-        
+        navigation.navigate(NavigationRoutes.movie_details, {
+            movie: item
+        });
     };
 
     const renderItem = ({ item, index }: { item: MovieItemBean; index: number }) => {

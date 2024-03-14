@@ -6,6 +6,7 @@ import NavigationRoutes from './NavigationRoutes';
 import { StyleSheet } from 'react-native';
 import Main from '../presentation/main/Main';
 import ColorUtils from '../../resources/colors/ColorUtils';
+import MovieDetails from '../presentation/movieDetails/MovieDetails';
 
 const ReactNavStack = createNativeStackNavigator();
 
@@ -26,6 +27,7 @@ const Navigation = () => {
                     statusBarAnimation: 'fade',
                 }}>
                 <ReactNavStack.Screen name={NavigationRoutes.main} component={Main} />
+                <ReactNavStack.Screen name={NavigationRoutes.movie_details} component={MovieDetails} />
             </ReactNavStack.Navigator>
         </NavigationContainer>
     );

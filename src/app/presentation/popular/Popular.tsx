@@ -17,6 +17,7 @@ import { getApiErrorMessageFromError } from '../../../utils/AppUtils';
 import DefaultLoadingView from '../widgets/view/DefaultLoadingView';
 import { MoviePopularRC } from '../../../domain/model/movie/MoviePopularRC';
 import { MoviePopularItemContent } from '../../../domain/model/movie/MoviePopularContent';
+import NavigationRoutes from '../../navigation/NavigationRoutes';
 
 interface Props {}
 
@@ -83,7 +84,9 @@ const Popular = (props: Props) => {
     }, []);
 
     const onClickItem = (item: MovieItemBean) => {
-        
+        navigation.navigate(NavigationRoutes.movie_details, {
+            movie: item
+        });
     };
 
     const renderItem = ({ item, index }: { item: MovieItemBean; index: number }) => {

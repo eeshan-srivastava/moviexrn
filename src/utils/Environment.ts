@@ -3,7 +3,7 @@ enum AppEnvironmentType {
     staging = 'staging',
 }
 
-const AppEnvironment: AppEnvironmentType = AppEnvironmentType.staging;
+const AppEnvironment: AppEnvironmentType = AppEnvironmentType.production;
 
 const isProduction = (): boolean => {
     return !__DEV__ && AppEnvironment === (AppEnvironmentType.production as any);

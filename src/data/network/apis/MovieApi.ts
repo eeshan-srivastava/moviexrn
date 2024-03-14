@@ -2,6 +2,7 @@ import { MovieNowPlayingRC } from '../../../domain/model/movie/MovieNowPlayingRC
 import { MoviePopularRC } from '../../../domain/model/movie/MoviePopularRC';
 import { MovieTopRatedRC } from '../../../domain/model/movie/MovieTopRatedRC';
 import { MovieUpcomingRC } from '../../../domain/model/movie/MovieUpcomingRC';
+import mainJson from '../../json/mainJson';
 import Api from '../Api';
 import ApiRoutes from '../ApiRoutes';
 import { getRequest, postRequest } from '../ApiUtils';
@@ -18,6 +19,7 @@ const getMovieNowPlayingApi = async (params: { requestContent: MovieNowPlayingRC
             })
             .catch((errorMessage: string) => {
                 reject(errorMessage);
+                //resolve(mainJson.data);
             });
     });
 };
