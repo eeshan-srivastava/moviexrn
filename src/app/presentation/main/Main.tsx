@@ -1,6 +1,6 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useEffect, useRef, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { BackHandler, StyleSheet, View } from 'react-native';
 import SafeArea from '../widgets/SafeArea';
 import colorCode from '../../../resources/colors/colorCode';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -9,10 +9,11 @@ import imageFile from '../../../resources/images/imageFile';
 import ReactBottomNavBar from '../widgets/bottomNavigationBar/reactNavigation/ReactBottomNavBar';
 import normDimens from '../../../resources/dimens/normDimens';
 import NavigationRoutes from '../../navigation/NavigationRoutes';
-import NowPlaying from '../movies/NowPlaying';
-import Popular from '../movies/Popular';
-import TopRated from '../movies/TopRated';
-import Upcoming from '../movies/Upcoming';
+import NowPlaying from '../nowPlaying/NowPlaying';
+import Popular from '../popular/Popular';
+import TopRated from '../topRated/TopRated';
+import Upcoming from '../upcoming/Upcoming';
+import BackPressUtils from '../../../utils/BackPressUtils';
 
 interface Props {}
 
@@ -39,6 +40,19 @@ const Main = (props: Props) => {
     };
 
     useEffect(() => {}, []);
+
+    const onBackPress = () =>{
+        return true;
+    }
+
+    useEffect(() => {
+        BackHandler.addEventListener(BackPressUtils.HARDWARE_BACKPRESS, onBackPress);
+        return () => BackHandler.removeEventListener(BackPressUtils.HARDWARE_BACKPRESS, onBackPress);
+    }, []);
+
+    const onBackPresssed = () => {
+        onBackPress();
+    };
 
     const tabs: Array<BottomNavTabData> = [
         {

@@ -31,15 +31,12 @@ const axiosConfigV3: AxiosRequestConfig = {
     timeout: axios_timeout_in_millis,
 };
 
-const unauthorized_axios_client_v3 = axios.create(axiosConfigV3);
 const authorized_axios_client_v3 = axios.create(axiosConfigV3);
 
-const unAuthorizedClientRequestHandler = (request: InternalAxiosRequestConfig) => {
-    return addCommonHeaders(request);
-};
-
 const authorizedClientRequestHandler = async (request: InternalAxiosRequestConfig) => {
-    return addCommonHeaders(request);
+    const req = addCommonHeaders(request)
+    logConsoleLog('Api Request => ', req);
+    return req
 };
 
 function addCommonHeaders(request: InternalAxiosRequestConfig) {
@@ -61,19 +58,9 @@ const commonResponseErrorHandler = (error: AxiosError) => {
     return Promise.reject(error);
 };
 
-unauthorized_axios_client_v3.interceptors.request.use(
-    (request: InternalAxiosRequestConfig) => unAuthorizedClientRequestHandler(request),
-    (error: AxiosError) => commonRequestErrorHandler(error),
-);
-
 authorized_axios_client_v3.interceptors.request.use(
     async (request: InternalAxiosRequestConfig) => authorizedClientRequestHandler(request),
     (error: AxiosError) => commonRequestErrorHandler(error),
-);
-
-unauthorized_axios_client_v3.interceptors.response.use(
-    (response: AxiosResponse) => commonClientResponseHandler(response),
-    (error: AxiosError) => commonResponseErrorHandler(error),
 );
 
 authorized_axios_client_v3.interceptors.response.use(
@@ -84,5 +71,4 @@ authorized_axios_client_v3.interceptors.response.use(
 export default {
     apiVersions,
     authorized_axios_client_v3,
-    unauthorized_axios_client_v3
 };

@@ -12,7 +12,7 @@ interface Route {
     };
 }
 
-const NowPlaying = (props: Props) => {
+const SearchMovies = (props: Props) => {
     const navigation: any = useNavigation();
     const route = useRoute() as Route;
    
@@ -27,7 +27,7 @@ const NowPlaying = (props: Props) => {
     );
 };
 
-export default NowPlaying;
+export default SearchMovies;
 
 const styles = StyleSheet.create({
     container1: {
