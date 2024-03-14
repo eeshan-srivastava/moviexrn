@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         // backgroundColor:'pink',
-        width: normDimens.SCREEN_WIDTH / 3,
+        width: normDimens.SCREEN_WIDTH / 2,
         height: normDimens.DIMEN_148,
         borderWidth: normDimens.DIMEN_0_5,
         borderColor: ColorUtils.getAlphaColor({ colorCode: colorCode.black, opacityPercent: 4 }),

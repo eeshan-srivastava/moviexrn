@@ -143,7 +143,7 @@ const NowPlaying = (props: Props) => {
                 <FlashList
                     data={movies}
                     renderItem={renderItem}
-                    numColumns={3}
+                    numColumns={2}
                     showsHorizontalScrollIndicator={false}
                     keyExtractor={keyExtractor}
                     removeClippedSubviews={true}
@@ -160,7 +160,7 @@ export default NowPlaying;
 
 const styles = StyleSheet.create({
     container1: {
-        backgroundColor: colorCode.red_ff0038,
+        backgroundColor: colorCode.black,
         flex:1
     },
     container2: {
