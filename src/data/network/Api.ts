@@ -23,7 +23,7 @@ const api_url =
 
 const api_url_v3 = api_url + apiVersions.v3;
 
-const axios_timeout_in_millis = 5000;
+const axios_timeout_in_millis = 10000;
 
 
 const axiosConfigV3: AxiosRequestConfig = {
