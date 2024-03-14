@@ -20,6 +20,6 @@ I have introduced clean architecture for the project though it doesn't follow 10
 Used Wrapper over Third Party components.
 
 Added StateMchines
-Have added the token in a const file. (didn't had time to and env so)
+Have added the token in a const file. (didn't had time to add env)
 
 Haven't had the time to finish it totally, but still please check out the project.
