@@ -65,6 +65,9 @@ export default DefaultErrorView;
 
 const styles = StyleSheet.create({
     conatiner: {
+        display:'flex',
+        flexDirection:'column',
+        flex:1,
         alignItems: 'center',
         backgroundColor: colorCode.white,
     },

@@ -30,7 +30,7 @@ const Upcoming = (props: Props) => {
     const navigation: any = useNavigation();
     const route = useRoute() as Route;
 
-    const [fullPageState, setFullPageState] = useState<PageStateType>(PageStateType.SUCCESS);
+    const [fullPageState, setFullPageState] = useState<PageStateType>(PageStateType.LOADING);
     const [fullPageErrorText, setFullPageErrorText] = useState<string>(strings.something_went_wrong);
 
     const [movies, setMovies] = useState<Array<MovieItemBean>>([]);
@@ -136,7 +136,6 @@ const Upcoming = (props: Props) => {
     };
 
     return (
-        <SafeArea>
              <PageStateComponent
                 pageState={fullPageState}
                 errorComponent={
@@ -147,7 +146,7 @@ const Upcoming = (props: Props) => {
                     />
                 }
                 loadingComponent={
-                    <DefaultLoadingView message={'Fetching popular movies, please wait...'} /> 
+                    <DefaultLoadingView message={'Fetching upcoming movies, please wait...'} /> 
                 }>
             <View style={styles.container1}>
                 <FlashList
@@ -164,7 +163,6 @@ const Upcoming = (props: Props) => {
                 />
             </View>
             </PageStateComponent>
-        </SafeArea>
     );
 };
 

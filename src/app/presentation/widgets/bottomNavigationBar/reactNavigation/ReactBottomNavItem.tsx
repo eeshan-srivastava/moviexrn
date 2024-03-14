@@ -3,9 +3,9 @@ import { StyleSheet, Text, TouchableOpacity, View, ViewStyle } from 'react-nativ
 import colorCode from '../../../../../resources/colors/colorCode';
 import normDimens from '../../../../../resources/dimens/normDimens';
 import normFonts from '../../../../../resources/dimens/normFonts';
-import { RadialGradient } from '../../../../../utils/AppImports';
 import { ImageResizeMode } from '../../imageView/ImageUtils';
 import ImageView from '../../imageView/ImageView';
+import LinearGradient from 'react-native-linear-gradient';
 
 interface Props {
     onClick: () => void;
@@ -42,12 +42,10 @@ const ReactBottomNavItem = (props: Props) => {
                         style={[
                             { width: width, height: height, transform: [{ rotate: '180deg' }], opacity: 0.8,  position: 'absolute', }
                         ]}>
-                        <RadialGradient
+                        <LinearGradient
                             colors={['#001F3F', colorCode.transparent]}
                             style={[styles.tabContainer, { width: width, height: height }]}
-                            locations={[0.2, 0.6]}
-                            radius={width * 1}
-                            center={[width * 0.5, height * 1]}
+                            locations={[0.5, 1]}
                         />
                     </View>
                 ) : null}

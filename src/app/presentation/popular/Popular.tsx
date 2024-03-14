@@ -30,7 +30,7 @@ const Popular = (props: Props) => {
     const navigation: any = useNavigation();
     const route = useRoute() as Route;
 
-    const [fullPageState, setFullPageState] = useState<PageStateType>(PageStateType.SUCCESS);
+    const [fullPageState, setFullPageState] = useState<PageStateType>(PageStateType.LOADING);
     const [fullPageErrorText, setFullPageErrorText] = useState<string>(strings.something_went_wrong);
 
     const [movies, setMovies] = useState<Array<MovieItemBean>>([]);
@@ -136,8 +136,7 @@ const Popular = (props: Props) => {
     };
 
     return (
-        <SafeArea>
-             <PageStateComponent
+        <PageStateComponent
                 pageState={fullPageState}
                 errorComponent={
                     <DefaultErrorView
@@ -163,8 +162,7 @@ const Popular = (props: Props) => {
                     onEndReached={onEndReached}
                 />
             </View>
-            </PageStateComponent>
-        </SafeArea>
+        </PageStateComponent>
     );
 };
 

@@ -30,7 +30,7 @@ const NowPlaying = (props: Props) => {
     const navigation: any = useNavigation();
     const route = useRoute() as Route;
 
-    const [fullPageState, setFullPageState] = useState<PageStateType>(PageStateType.SUCCESS);
+    const [fullPageState, setFullPageState] = useState<PageStateType>(PageStateType.LOADING);
     const [fullPageErrorText, setFullPageErrorText] = useState<string>(strings.something_went_wrong);
 
     const [movies, setMovies] = useState<Array<MovieItemBean>>([]);
@@ -136,19 +136,18 @@ const NowPlaying = (props: Props) => {
     };
 
     return (
-        <SafeArea>
-             <PageStateComponent
-                pageState={fullPageState}
-                errorComponent={
-                    <DefaultErrorView
-                        secondaryText={fullPageErrorText}
-                        onRetry={onRetry}
-                        backButtonVisible={false}
-                    />
-                }
-                loadingComponent={
-                    <DefaultLoadingView message={'Fetching movies, please wait...'} /> 
-                }>
+        <PageStateComponent
+            pageState={fullPageState}
+            errorComponent={
+                <DefaultErrorView
+                    secondaryText={fullPageErrorText}
+                    onRetry={onRetry}
+                    backButtonVisible={false}
+                />
+            }
+            loadingComponent={
+                <DefaultLoadingView message={'Fetching now playing movies, please wait...'} /> 
+            }>
             <View style={styles.container1}>
                 <FlashList
                     data={movies}
@@ -163,8 +162,7 @@ const NowPlaying = (props: Props) => {
                     onEndReached={onEndReached}
                 />
             </View>
-            </PageStateComponent>
-        </SafeArea>
+        </PageStateComponent>
     );
 };
 

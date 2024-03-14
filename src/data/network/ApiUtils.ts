@@ -86,4 +86,12 @@ const getRequest = (requestConfig: GetApiConfig): Promise<any> => {
     return makeApiRequest(getConfig);
 };
 
-export { postRequest, getRequest, ApiErrorMessages };
+const refineApiErrorMessage = (message : string) =>{
+    if(message==='AxiosError: Network Error'){
+        return 'Some network issue, please try again!'
+    }else{
+        return message.replace('Axios','');
+    }
+}
+
+export { postRequest, getRequest, ApiErrorMessages, refineApiErrorMessage };

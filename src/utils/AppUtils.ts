@@ -1,3 +1,4 @@
+import { refineApiErrorMessage } from '../data/network/ApiUtils';
 import ErrorUtils from '../domain/model/moviexrn/ErrorUtils';
 import { StandardError } from '../domain/model/moviexrn/StandardError';
 import Environment from './Environment';
@@ -53,7 +54,7 @@ const getApiErrorMessageFromError = (params: { error: any }) => {
     if (isStandardError(stdError)) {
         errorMessage = stdError.userMessage;
     } else {
-        errorMessage = stdError.toString();
+        errorMessage = refineApiErrorMessage(stdError.toString());
     }
     return errorMessage;
 };

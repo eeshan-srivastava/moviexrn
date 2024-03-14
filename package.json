@@ -10,7 +10,8 @@
         "test": "jest",
         "format": "npx prettier --write .",
         "cleanAndroid": "cd android && ./gradlew clean && cd ..",
-        "cleanIos": "cd ios && rm -rf build && cd .."
+        "cleanIos": "cd ios && rm -rf build && cd ..",
+        "podIos": "cd ios && pod install && cd .."
     },
     "dependencies": {
         "react": "18.2.0",
@@ -35,7 +36,6 @@
         "@react-navigation/native-stack": "6.9.13",
         "@react-native-async-storage/async-storage": "1.18.2",
         "react-native-gesture-handler": "2.14.0",
-        "react-native-radial-gradient": "1.1.2",
         "@react-native-community/blur": "4.2.0",
         "react-native-paper": "5.8.0",
         "react-native-drop-shadow": "0.0.7"
