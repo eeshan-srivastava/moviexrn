@@ -125,6 +125,16 @@ const NowPlaying = (props: Props) => {
         });
     };
 
+    const onEndReached = () => {
+        if (paginationState !== PaginationStateType.FINISHED) {
+            setPaginationState(PaginationStateType.LOADING);
+            getListOfMoviesData({
+                page: pageNo,
+                langauge:'en-US'
+            });
+        }
+    };
+
     return (
         <SafeArea>
              <PageStateComponent
@@ -147,8 +157,10 @@ const NowPlaying = (props: Props) => {
                     showsHorizontalScrollIndicator={false}
                     keyExtractor={keyExtractor}
                     removeClippedSubviews={true}
-                    estimatedItemSize={normDimens.DIMEN_148}
+                    estimatedItemSize={normDimens.DIMEN_260}
                     ListFooterComponent={footerComponent}
+                    onEndReachedThreshold={0.5}
+                    onEndReached={onEndReached}
                 />
             </View>
             </PageStateComponent>

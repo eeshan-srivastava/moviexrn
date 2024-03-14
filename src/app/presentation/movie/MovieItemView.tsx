@@ -26,16 +26,35 @@ const MovieItemView = (props: Props) => {
                 onClickItem(item);
             }}
             activeOpacity={0.7}>
-            <View style={isFavourite ? styles.container4 : styles.container3} pointerEvents={'none'}>
+            <View style={styles.container4} pointerEvents={'none'}>
                 <ImageView
                     source={{ uri: item.poster_path }}
                     style={styles.container2}
-                    resizeMode={ImageResizeMode.cover}
+                    resizeMode={ImageResizeMode.contain}
                 />
-                <TextView
-                    style={styles.text1}
-                    fontWeight={FontWeight._600}
-                    extraLineHeight={normFonts.FONT_2}>{item.title}</TextView>
+                <View style={styles.container5}>
+                    <TextView
+                        style={styles.text1}
+                        fontWeight={FontWeight._700}
+                        ellipsizeMode='tail'
+                        numberOfLines={1}
+                        extraLineHeight={normFonts.FONT_2}>{item.title}
+                    </TextView>
+                    <TextView
+                        style={styles.text2}
+                        fontWeight={FontWeight._400}
+                        ellipsizeMode='tail'
+                        numberOfLines={1}
+                        extraLineHeight={normFonts.FONT_2}>{'Released On : '+item.release_date}
+                    </TextView>
+                    <TextView
+                        style={styles.text3}
+                        fontWeight={FontWeight._400}
+                        ellipsizeMode='tail'
+                        numberOfLines={1}
+                        extraLineHeight={normFonts.FONT_2}>{'Rating : '+item.vote_average}
+                    </TextView>
+                </View>
             </View>
         </TouchableOpacity>
     );
@@ -45,49 +64,49 @@ export default MovieItemView;
 
 const styles = StyleSheet.create({
     container1: {
+        display:'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        // backgroundColor:'pink',
         width: normDimens.SCREEN_WIDTH / 2,
-        height: normDimens.DIMEN_148,
-        borderWidth: normDimens.DIMEN_0_5,
-        borderColor: ColorUtils.getAlphaColor({ colorCode: colorCode.black, opacityPercent: 4 }),
     },
     container2: {
-        width: normDimens.DIMEN_50,
-        height: normDimens.DIMEN_50,
-        borderRadius: normDimens.DIMEN_80,
-        marginTop: normDimens.DIMEN_32,
+        width: normDimens.SCREEN_WIDTH / 2.05,
+        height: normDimens.DIMEN_260,
+        borderRadius: normDimens.DIMEN_0,
     },
     text1: {
-        fontSize: normFonts.FONT_11,
-        color: ColorUtils.getAlphaColor({ colorCode: '#343434', opacityPercent: 100 }),
-        // backgroundColor:'green',
-        marginTop: normDimens.DIMEN_12,
-        maxWidth: normDimens.SCREEN_WIDTH / 3 - normDimens.DIMEN_16,
-        textAlign: 'center',
+        fontSize: normFonts.FONT_16,
+        color: ColorUtils.getAlphaColor({ colorCode: colorCode.white, opacityPercent: 80 }),
+        marginTop: normDimens.DIMEN_8,
+        maxWidth: normDimens.SCREEN_WIDTH / 2 - normDimens.DIMEN_16,
     },
-    container3: {
-        flexDirection: 'column',
-        // justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: colorCode.transparent,
-        width: normDimens.SCREEN_WIDTH / 3,
-        height: normDimens.DIMEN_148,
-        borderRadius: normDimens.DIMEN_10,
-        // borderWidth:normDimens.DIMEN_1,
-        // borderColor: colorCode.black
+    text2: {
+        fontSize: normFonts.FONT_10,
+        color: ColorUtils.getAlphaColor({ colorCode: colorCode.white, opacityPercent: 60 }),
+        marginTop: normDimens.DIMEN_8,
+        maxWidth: normDimens.SCREEN_WIDTH / 2 - normDimens.DIMEN_16,
+    },
+    text3: {
+        fontSize: normFonts.FONT_10,
+        color: ColorUtils.getAlphaColor({ colorCode: colorCode.white, opacityPercent: 60 }),
+        marginTop: normDimens.DIMEN_8,
+        maxWidth: normDimens.SCREEN_WIDTH / 2 - normDimens.DIMEN_16,
     },
     container4: {
         flexDirection: 'column',
-        // justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: ColorUtils.getAlphaColor({ colorCode: colorCode.actionTint, opacityPercent: 100 }),
-        width: normDimens.SCREEN_WIDTH / 3,
-        height: normDimens.DIMEN_148,
-        borderRadius: normDimens.DIMEN_0,
-        // borderWidth:normDimens.DIMEN_1,
-        // borderColor: colorCode.black
+        width: normDimens.SCREEN_WIDTH / 2.05,
+        borderRadius: normDimens.DIMEN_8,
+        backgroundColor: ColorUtils.getAlphaColor({ colorCode: colorCode.grey_363636, opacityPercent: 60 }),
+        overflow:'hidden',
+        marginBottom: normDimens.DIMEN_4,
     },
+    container5:{
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: normDimens.SCREEN_WIDTH / 2 - normDimens.DIMEN_8,
+        borderRadius: normDimens.DIMEN_0,
+        paddingBottom: normDimens.DIMEN_8
+    }
 });

@@ -23,7 +23,7 @@ const getMovieNowPlayingApi = async (params: { requestContent: MovieNowPlayingRC
 };
 
 const getMoviePopularApi = async (params: { requestContent: MoviePopularRC }): Promise<any> => {
-    const apiRoute = `${ApiRoutes.movie.popular}/?language=${params.requestContent.langauge}&page=${params.requestContent.page}`
+    const apiRoute = `${ApiRoutes.movie.popular}?language=${params.requestContent.langauge}&page=${params.requestContent.page}`
     return new Promise((resolve, reject) => {
         getRequest({
             route: apiRoute,
@@ -39,7 +39,7 @@ const getMoviePopularApi = async (params: { requestContent: MoviePopularRC }): P
 };
 
 const getMovieTopRatedApi = async (params: { requestContent: MovieTopRatedRC }): Promise<any> => {
-    const apiRoute = `${ApiRoutes.movie.topRated}/?language=${params.requestContent.langauge}&page=${params.requestContent.page}`
+    const apiRoute = `${ApiRoutes.movie.topRated}?language=${params.requestContent.langauge}&page=${params.requestContent.page}`
     return new Promise((resolve, reject) => {
         getRequest({
             route: apiRoute,
@@ -55,7 +55,7 @@ const getMovieTopRatedApi = async (params: { requestContent: MovieTopRatedRC }):
 };
 
 const getMovieUpcomingApi = async (params: { requestContent: MovieUpcomingRC }): Promise<any> => {
-    const apiRoute = `${ApiRoutes.movie.upcoming}/?language=${params.requestContent.langauge}&page=${params.requestContent.page}`
+    const apiRoute = `${ApiRoutes.movie.upcoming}?language=${params.requestContent.langauge}&page=${params.requestContent.page}`
     return new Promise((resolve, reject) => {
         getRequest({
             route: apiRoute,
