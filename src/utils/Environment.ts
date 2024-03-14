@@ -20,5 +20,5 @@ export default {
     AppEnvironmentType,
     AppEnvironment,
     IS_PRODUCTION,
-    IS_STAGING
+    IS_STAGING,
 };

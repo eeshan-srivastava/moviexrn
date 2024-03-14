@@ -16,7 +16,6 @@ const SoraFont: AppFont = {
     700: 'Sora-Bold',
 };
 
-
 const EnglishFont = {
     SoraFont: SoraFont,
 };

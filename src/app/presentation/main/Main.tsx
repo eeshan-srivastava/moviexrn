@@ -11,14 +11,11 @@ interface Route {
     };
 }
 
-
 const Main = (props: Props) => {
     const navigation: any = useNavigation();
     const route = useRoute() as Route;
-  
 
     useEffect(() => {}, []);
-
 
     return (
         <SafeArea>

@@ -9,13 +9,13 @@ const resetAppPreferences = () => {
 };
 
 const getFavouriteMovies = (): Record<string, any> => {
-    const app : AppReducer = store.getState()?.app as any;
+    const app: AppReducer = store.getState()?.app as any;
     return app?.favouriteMovies;
 };
 
 const addMoviesToFavourites = (movies: Record<string, any>) => {
     const currentMovies = getFavouriteMovies();
-    const favouriteMovies = {...currentMovies, ...movies}
+    const favouriteMovies = { ...currentMovies, ...movies };
     store.dispatch({
         type: ReducerActionType.UPDATE_FAVOURITE_MOVIES,
         payload: {
@@ -27,9 +27,9 @@ const addMoviesToFavourites = (movies: Record<string, any>) => {
 const removeMoviesFromFavourites = (movies: Record<string, any>) => {
     const currentMovies = getFavouriteMovies();
     Object.entries(movies).forEach(([key, value]: [string, any]) => {
-        delete currentMovies[key]
+        delete currentMovies[key];
     });
-    const favouriteMovies = {...currentMovies}
+    const favouriteMovies = { ...currentMovies };
     store.dispatch({
         type: ReducerActionType.UPDATE_FAVOURITE_MOVIES,
         payload: {
@@ -38,10 +38,9 @@ const removeMoviesFromFavourites = (movies: Record<string, any>) => {
     });
 };
 
-
 export default {
     resetAppPreferences,
     getFavouriteMovies,
     addMoviesToFavourites,
-    removeMoviesFromFavourites
+    removeMoviesFromFavourites,
 };

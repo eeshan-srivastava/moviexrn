@@ -25,10 +25,7 @@ const Navigation = () => {
                     statusBarStyle: 'dark',
                     statusBarAnimation: 'fade',
                 }}>
-                <ReactNavStack.Screen
-                    name={NavigationRoutes.main}
-                    component={Main}
-                />
+                <ReactNavStack.Screen name={NavigationRoutes.main} component={Main} />
             </ReactNavStack.Navigator>
         </NavigationContainer>
     );

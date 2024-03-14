@@ -1,11 +1,11 @@
 import { ReducerAction, ReducerActionType } from '../utils/ReducerUtils';
 
 export interface AppReducer {
-    favouriteMovies: Record<string, any>
+    favouriteMovies: Record<string, any>;
 }
 
 const INITIAL_STATE: AppReducer = {
-    favouriteMovies : {}
+    favouriteMovies: {},
 };
 
 const appReducer = (state: AppReducer = INITIAL_STATE, action: ReducerAction) => {
@@ -13,7 +13,7 @@ const appReducer = (state: AppReducer = INITIAL_STATE, action: ReducerAction) =>
         case ReducerActionType.UPDATE_FAVOURITE_MOVIES:
             return {
                 ...state,
-                favouriteMovies:  action?.payload?.favouriteMovies,
+                favouriteMovies: action?.payload?.favouriteMovies,
             };
         case ReducerActionType.RESET_APP_PREFERENCES:
             return INITIAL_STATE;
